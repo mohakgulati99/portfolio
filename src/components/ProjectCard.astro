@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { url } from '../utils/url';
 
 interface Props {
   project: CollectionEntry<'work'>;
@@ -7,7 +8,7 @@ interface Props {
 
 const { project } = Astro.props;
 const { title, subtitle, company, year, tags, summary, visibility } = project.data;
-const href = `/work/${project.id}`;
+const href = url(`/work/${project.id}`);
 ---
 
 <article class="group border border-border rounded-lg overflow-hidden hover:border-on-surface-muted transition-colors">

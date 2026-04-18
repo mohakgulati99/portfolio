@@ -1,8 +1,10 @@
 ---
+import { url } from '../utils/url';
+
 const navLinks = [
-  { label: 'Work', href: '/work' },
-  { label: 'About', href: '/about' },
-  { label: 'Resume', href: '/resume' },
+  { label: 'Work', href: url('/work') },
+  { label: 'About', href: url('/about') },
+  { label: 'Resume', href: url('/resume') },
   { label: 'Contact', href: 'mailto:mohakgulati99@gmail.com' },
 ];
 
@@ -14,7 +16,7 @@ const currentPath = Astro.url.pathname;
     class="mx-auto flex max-w-6xl items-center justify-between px-[var(--page-x)] py-4"
     aria-label="Main navigation"
   >
-    <a href="/" class="text-sm font-medium text-on-surface hover:text-on-surface-muted transition-colors">
+    <a href={url('/')} class="text-sm font-medium text-on-surface hover:text-on-surface-muted transition-colors">
       Mohak Gulati
     </a>
     <ul class="flex items-center gap-6 list-none m-0 p-0">

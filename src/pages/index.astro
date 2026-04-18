@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { getCollection } from 'astro:content';
+import { url } from '../utils/url';
 
 const allProjects = await getCollection('work');
 const featured = allProjects
@@ -25,7 +26,7 @@ const featured = allProjects
       ))}
     </div>
     <div class="mt-10">
-      <a href="/work" class="text-sm text-on-surface-muted hover:text-on-surface transition-colors underline underline-offset-4">
+      <a href={url('/work')} class="text-sm text-on-surface-muted hover:text-on-surface transition-colors underline underline-offset-4">
         View all work →
       </a>
     </div>
@@ -40,7 +41,7 @@ const featured = allProjects
         the underlying technology is complex.
       </p>
       <a
-        href="/about"
+        href={url('/about')}
         class="inline-block mt-6 text-sm text-on-surface-muted hover:text-on-surface transition-colors underline underline-offset-4"
       >
         More about me →
