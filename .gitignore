@@ -2,6 +2,9 @@
 dist/
 .output/
 
+# Astro generated types
+.astro/
+
 # dependencies
 node_modules/
 
