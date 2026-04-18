@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+
+const allProjects = await getCollection('work');
+const featured = allProjects
+  .filter((p) => p.data.featured && p.data.visibility !== 'hidden')
+  .sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout
+  title="Mohak Gulati"
+  description="Product designer building planet-scale experiences. Currently designing agentic experiences for M365 Copilot at Microsoft."
+>
+  <Hero />
+
+  <!-- Featured work -->
+  <section class="mx-auto max-w-6xl px-[var(--page-x)] pb-20">
+    <h2 class="text-xs uppercase tracking-widest text-on-surface-muted mb-8">Featured Work</h2>
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {featured.map((project) => (
+        <ProjectCard project={project} />
+      ))}
+    </div>
+    <div class="mt-10">
+      <a href="/work" class="text-sm text-on-surface-muted hover:text-on-surface transition-colors underline underline-offset-4">
+        View all work →
+      </a>
+    </div>
+  </section>
+
+  <!-- Bio snippet -->
+  <section class="mx-auto max-w-6xl px-[var(--page-x)] pb-24 border-t border-border pt-16">
+    <div class="max-w-2xl">
+      <p class="text-on-surface leading-relaxed">
+        I'm a product designer at Microsoft working on M365 Copilot Agents, building AI-native experiences
+        for hundreds of millions of users. I care about designing systems that feel intuitive even when
+        the underlying technology is complex.
+      </p>
+      <a
+        href="/about"
+        class="inline-block mt-6 text-sm text-on-surface-muted hover:text-on-surface transition-colors underline underline-offset-4"
+      >
+        More about me →
+      </a>
+    </div>
+  </section>
+</BaseLayout>

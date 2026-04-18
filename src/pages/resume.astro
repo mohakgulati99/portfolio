@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Resume"
+  description="Resume — Mohak Gulati, product designer at Microsoft."
+>
+  <article class="mx-auto max-w-3xl px-[var(--page-x)] py-16">
+    <div class="flex items-start justify-between gap-6 mb-12">
+      <div>
+        <h1 class="text-3xl font-semibold tracking-tight text-on-surface">Mohak Gulati</h1>
+        <p class="mt-1 text-on-surface-muted">Product Designer · Microsoft</p>
+        <p class="mt-1 text-sm text-on-surface-muted">
+          <a href="mailto:mohakgulati99@gmail.com" class="hover:text-on-surface transition-colors">
+            mohakgulati99@gmail.com
+          </a>
+          {' · '}
+          <a
+            href="https://linkedin.com/in/mohakgulati"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-on-surface transition-colors"
+          >
+            LinkedIn
+          </a>
+          {' · '}
+          <a href="https://www.mohakgulati.com" class="hover:text-on-surface transition-colors">
+            mohakgulati.com
+          </a>
+        </p>
+      </div>
+      <a
+        href="/resume.pdf"
+        download
+        class="shrink-0 rounded border border-border px-4 py-2 text-sm text-on-surface hover:bg-surface-raised transition-colors"
+      >
+        Download PDF
+      </a>
+    </div>
+
+    <!-- Experience -->
+    <section class="mb-12">
+      <h2 class="text-xs uppercase tracking-widest text-on-surface-muted mb-6 pb-2 border-b border-border">
+        Experience
+      </h2>
+
+      <div class="space-y-8">
+        <div>
+          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+            <h3 class="text-sm font-semibold text-on-surface">Product Designer — M365 Copilot Agents</h3>
+            <span class="text-sm text-on-surface-muted">2023 – Present</span>
+          </div>
+          <p class="text-sm text-on-surface-muted mb-2">Microsoft</p>
+          <ul class="list-disc list-inside space-y-1 text-sm text-on-surface">
+            <li>Design owner for Agents UX Framework — reached ~115M MAU on M365 Copilot Mobile</li>
+            <li>Led design for Custom Engine Agents — 100K active users, 500M queries/month</li>
+            <li>UX lead for Inferred Contacts in Outlook — 10% engagement lift, 600M MAU</li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+            <h3 class="text-sm font-semibold text-on-surface">UX Design Intern — SharePoint Admin Center</h3>
+            <span class="text-sm text-on-surface-muted">Summer 2022</span>
+          </div>
+          <p class="text-sm text-on-surface-muted mb-2">Microsoft</p>
+          <p class="text-sm text-on-surface">Redesigned key Admin Center flows to reduce task completion time for IT administrators managing large tenant environments.</p>
+        </div>
+
+        <div>
+          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+            <h3 class="text-sm font-semibold text-on-surface">UX Design Intern — Microsoft Lists Mobile</h3>
+            <span class="text-sm text-on-surface-muted">Summer 2021</span>
+          </div>
+          <p class="text-sm text-on-surface-muted mb-2">Microsoft</p>
+          <p class="text-sm text-on-surface">Redesigned the onboarding experience for Microsoft Lists on iOS and Android, focusing on progressive disclosure to reduce time-to-first-list.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="mb-12">
+      <h2 class="text-xs uppercase tracking-widest text-on-surface-muted mb-6 pb-2 border-b border-border">
+        Education
+      </h2>
+      <div class="space-y-4">
+        <div>
+          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+            <h3 class="text-sm font-semibold text-on-surface">M.Des. Interaction Design</h3>
+            <span class="text-sm text-on-surface-muted">2019 – 2022</span>
+          </div>
+          <p class="text-sm text-on-surface-muted">IDC School of Design, IIT Bombay</p>
+        </div>
+        <div>
+          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+            <h3 class="text-sm font-semibold text-on-surface">Exchange — Design</h3>
+            <span class="text-sm text-on-surface-muted">2020</span>
+          </div>
+          <p class="text-sm text-on-surface-muted">École des Arts Décoratifs, Paris</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="mb-12">
+      <h2 class="text-xs uppercase tracking-widest text-on-surface-muted mb-6 pb-2 border-b border-border">
+        Skills
+      </h2>
+      <dl class="grid grid-cols-1 gap-3 sm:grid-cols-2 text-sm">
+        <div>
+          <dt class="font-medium text-on-surface">Design</dt>
+          <dd class="text-on-surface-muted">Interaction design, systems design, user research, prototyping, Figma</dd>
+        </div>
+        <div>
+          <dt class="font-medium text-on-surface">Domains</dt>
+          <dd class="text-on-surface-muted">AI / agents, mobile, enterprise SaaS, design systems</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- Achievements -->
+    <section class="mb-12">
+      <h2 class="text-xs uppercase tracking-widest text-on-surface-muted mb-6 pb-2 border-b border-border">
+        Achievements
+      </h2>
+      <ul class="list-disc list-inside space-y-1 text-sm text-on-surface">
+        <li>3× Microsoft Global Hackathon winner</li>
+        <li>2× Adobe Design Awards</li>
+      </ul>
+    </section>
+
+    <!-- Community -->
+    <section class="mb-12">
+      <h2 class="text-xs uppercase tracking-widest text-on-surface-muted mb-6 pb-2 border-b border-border">
+        Community
+      </h2>
+      <ul class="list-disc list-inside space-y-1 text-sm text-on-surface">
+        <li>Astronomy Society of India</li>
+        <li>Maison du Japon, Paris</li>
+        <li>Centre Pompidou, Paris</li>
+      </ul>
+    </section>
+
+    <p class="text-xs text-on-surface-muted">Last updated: April 2026</p>
+  </article>
+</BaseLayout>

@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="About"
+  description="Mohak Gulati is a product designer at Microsoft working on M365 Copilot Agents."
+>
+  <article class="mx-auto max-w-3xl px-[var(--page-x)] py-16">
+    <h1 class="text-3xl font-semibold tracking-tight text-on-surface mb-8">About</h1>
+
+    <!-- Intro -->
+    <section class="mb-16">
+      <p class="text-on-surface leading-relaxed text-lg">
+        I'm Mohak Gulati, a product designer at Microsoft working on M365 Copilot Agents. I design
+        AI-native experiences that serve hundreds of millions of people — work that sits at the
+        intersection of interaction design, systems thinking, and emerging technology.
+      </p>
+      <p class="mt-4 text-on-surface leading-relaxed">
+        I studied interaction design at IDC IIT Bombay and spent a year at École des Arts Décoratifs
+        in Paris. Before moving into full-time roles at Microsoft, I completed two design internships
+        there — on Microsoft Lists and SharePoint Admin Center.
+      </p>
+    </section>
+
+    <!-- Experience -->
+    <section class="mb-16">
+      <h2 class="text-xs uppercase tracking-widest text-on-surface-muted mb-8">Experience</h2>
+      <ol class="relative border-l border-border space-y-10 list-none m-0 pl-0">
+
+        <li class="ml-6">
+          <span class="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-border bg-surface-overlay"></span>
+          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
+            <h3 class="text-base font-medium text-on-surface">Product Designer — M365 Copilot Agents</h3>
+            <span class="text-sm text-on-surface-muted whitespace-nowrap">2023 – Present</span>
+          </div>
+          <p class="text-sm text-on-surface-muted mb-1">Microsoft</p>
+          <p class="text-sm text-on-surface leading-relaxed">
+            Design owner for the Agents UX Framework and Custom Engine Agents on M365 Copilot Mobile.
+            Previously UX lead for Inferred Contacts in Outlook.
+          </p>
+        </li>
+
+        <li class="ml-6">
+          <span class="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-border bg-surface-overlay"></span>
+          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
+            <h3 class="text-base font-medium text-on-surface">UX Design Intern — SharePoint Admin Center</h3>
+            <span class="text-sm text-on-surface-muted whitespace-nowrap">Summer 2022</span>
+          </div>
+          <p class="text-sm text-on-surface-muted">Microsoft</p>
+        </li>
+
+        <li class="ml-6">
+          <span class="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-border bg-surface-overlay"></span>
+          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
+            <h3 class="text-base font-medium text-on-surface">UX Design Intern — Microsoft Lists Mobile</h3>
+            <span class="text-sm text-on-surface-muted whitespace-nowrap">Summer 2021</span>
+          </div>
+          <p class="text-sm text-on-surface-muted">Microsoft</p>
+        </li>
+
+      </ol>
+    </section>
+
+    <!-- Education -->
+    <section class="mb-16">
+      <h2 class="text-xs uppercase tracking-widest text-on-surface-muted mb-8">Education</h2>
+      <div class="space-y-6">
+        <div>
+          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+            <h3 class="text-base font-medium text-on-surface">M.Des. Interaction Design</h3>
+            <span class="text-sm text-on-surface-muted">2019 – 2022</span>
+          </div>
+          <p class="text-sm text-on-surface-muted">IDC School of Design, IIT Bombay</p>
+        </div>
+        <div>
+          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+            <h3 class="text-base font-medium text-on-surface">Exchange — Design</h3>
+            <span class="text-sm text-on-surface-muted">2020</span>
+          </div>
+          <p class="text-sm text-on-surface-muted">École des Arts Décoratifs, Paris</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievements -->
+    <section class="mb-16">
+      <h2 class="text-xs uppercase tracking-widest text-on-surface-muted mb-8">Achievements</h2>
+      <ul class="space-y-3 list-none m-0 p-0">
+        <li class="text-sm text-on-surface">3× Microsoft Global Hackathon winner</li>
+        <li class="text-sm text-on-surface">2× Adobe Design Awards</li>
+      </ul>
+    </section>
+
+    <!-- Community -->
+    <section class="mb-16">
+      <h2 class="text-xs uppercase tracking-widest text-on-surface-muted mb-8">Community</h2>
+      <ul class="space-y-3 list-none m-0 p-0">
+        <li class="text-sm text-on-surface">Astronomy Society of India</li>
+        <li class="text-sm text-on-surface">Maison du Japon, Paris</li>
+        <li class="text-sm text-on-surface">Centre Pompidou, Paris</li>
+      </ul>
+    </section>
+  </article>
+</BaseLayout>

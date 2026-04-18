@@ -1,0 +1,138 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  entry: CollectionEntry<'work'>;
+  prev?: CollectionEntry<'work'> | undefined;
+  next?: CollectionEntry<'work'> | undefined;
+}
+
+const { entry, prev, next } = Astro.props;
+const { title, subtitle, company, year, role, tags, heroImage, summary, impact, visibility } =
+  entry.data;
+
+const password = entry.data.password ?? '';
+---
+
+<BaseLayout title={title} description={summary} image={heroImage}>
+  <article class="mx-auto max-w-6xl px-[var(--page-x)] py-16">
+    <!-- Project header -->
+    <header class="mb-12">
+      <h1 class="text-3xl font-semibold tracking-tight text-on-surface sm:text-4xl">{title}</h1>
+      <p class="mt-3 text-lg text-on-surface-muted">{subtitle}</p>
+
+      <dl class="mt-8 flex flex-wrap gap-x-8 gap-y-4 text-sm">
+        <div>
+          <dt class="text-xs uppercase tracking-widest text-on-surface-muted">Company</dt>
+          <dd class="mt-1 text-on-surface">{company}</dd>
+        </div>
+        <div>
+          <dt class="text-xs uppercase tracking-widest text-on-surface-muted">Year</dt>
+          <dd class="mt-1 text-on-surface">{year}</dd>
+        </div>
+        <div>
+          <dt class="text-xs uppercase tracking-widest text-on-surface-muted">Role</dt>
+          <dd class="mt-1 text-on-surface">{role}</dd>
+        </div>
+      </dl>
+
+      <ul class="flex flex-wrap gap-2 mt-6 list-none p-0 m-0">
+        {tags.map((tag) => (
+          <li class="rounded-full border border-border px-3 py-0.5 text-xs text-on-surface-muted">
+            {tag}
+          </li>
+        ))}
+      </ul>
+    </header>
+
+    <!-- Hero image -->
+    <div class="mb-12 aspect-video w-full rounded-lg bg-surface-overlay flex items-center justify-center overflow-hidden">
+      <img src={heroImage} alt="Placeholder" class="w-full h-full object-cover" onerror="this.style.display='none'" />
+    </div>
+
+    <!-- Summary -->
+    <section class="mb-10">
+      <h2 class="text-xs uppercase tracking-widest text-on-surface-muted mb-3">Overview</h2>
+      <p class="text-on-surface leading-relaxed">{summary}</p>
+    </section>
+
+    <!-- Impact -->
+    {impact && impact.length > 0 && (
+      <section class="mb-10">
+        <h2 class="text-xs uppercase tracking-widest text-on-surface-muted mb-3">Impact</h2>
+        <ul class="list-disc list-inside space-y-1">
+          {impact.map((item) => (
+            <li class="text-on-surface">{item}</li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <!-- MDX body with optional password gate -->
+    {visibility === 'password' ? (
+      <>
+        <div id="password-gate" class="rounded-lg border border-border p-8 text-center">
+          <p class="text-on-surface mb-4">This case study is password protected.</p>
+          <form id="gate-form" class="flex flex-col items-center gap-3 max-w-xs mx-auto">
+            <input
+              type="password"
+              id="gate-input"
+              placeholder="Enter password"
+              class="w-full rounded border border-border bg-surface px-4 py-2 text-sm text-on-surface focus:outline-none focus:ring-1 focus:ring-on-surface"
+              autocomplete="off"
+            />
+            <button
+              type="submit"
+              class="w-full rounded bg-accent px-4 py-2 text-sm text-on-accent hover:opacity-80 transition-opacity"
+            >
+              View project
+            </button>
+            <p id="gate-error" class="text-xs text-red-500 hidden">Incorrect password.</p>
+          </form>
+        </div>
+        <div id="protected-content" class="hidden prose prose-neutral max-w-none mt-10">
+          <slot />
+        </div>
+        <script define:vars={{ password }}>
+          const form = document.getElementById('gate-form');
+          const input = document.getElementById('gate-input');
+          const error = document.getElementById('gate-error');
+          const gate = document.getElementById('password-gate');
+          const content = document.getElementById('protected-content');
+          form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (input.value === password) {
+              gate.classList.add('hidden');
+              content.classList.remove('hidden');
+            } else {
+              error.classList.remove('hidden');
+            }
+          });
+        </script>
+      </>
+    ) : (
+      <div class="prose prose-neutral max-w-none mt-10">
+        <slot />
+      </div>
+    )}
+
+    <!-- Prev / Next navigation -->
+    {(prev || next) && (
+      <nav class="mt-16 pt-8 border-t border-border flex justify-between gap-4" aria-label="Case study navigation">
+        {prev ? (
+          <a href={`/work/${prev.id}`} class="group flex flex-col gap-1 max-w-xs">
+            <span class="text-xs text-on-surface-muted uppercase tracking-widest">Previous</span>
+            <span class="text-sm text-on-surface group-hover:underline">{prev.data.title}</span>
+          </a>
+        ) : <div />}
+        {next ? (
+          <a href={`/work/${next.id}`} class="group flex flex-col items-end gap-1 max-w-xs text-right">
+            <span class="text-xs text-on-surface-muted uppercase tracking-widest">Next</span>
+            <span class="text-sm text-on-surface group-hover:underline">{next.data.title}</span>
+          </a>
+        ) : <div />}
+      </nav>
+    )}
+  </article>
+</BaseLayout>
