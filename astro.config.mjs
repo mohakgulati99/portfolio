@@ -4,8 +4,8 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://mohakgulati99.github.io',
-  base: '/portfolio',
+  site: 'https://www.mohakgulati.com',
+  base: '/',
   integrations: [mdx(), sitemap()],
   vite: {
     plugins: [tailwindcss()],
